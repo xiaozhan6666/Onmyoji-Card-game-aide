@@ -1,0 +1,64 @@
+{
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "calibrated": {
+      "type": "boolean"
+    },
+    "min_confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "max_profile_delay_seconds": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 600
+    },
+    "preprocess": {
+      "enum": [
+        "color",
+        "gray",
+        "threshold"
+      ]
+    },
+    "scale": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "detection_model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recognition_model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "text_detection_model_dir": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "text_recognition_model_dir": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "calibrated",
+    "min_confidence",
+    "max_profile_delay_seconds",
+    "preprocess",
+    "scale",
+    "detection_model",
+    "recognition_model"
+  ],
+  "additionalProperties": false
+}

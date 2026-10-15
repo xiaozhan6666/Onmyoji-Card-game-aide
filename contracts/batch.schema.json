@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "scope_key": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 64
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "capture_id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "shikigami_id": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,9}$"
+          },
+          "season_key": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "player_id": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "grade": {
+            "enum": [
+              5,
+              6,
+              7,
+              8,
+              9,
+              10
+            ]
+          },
+          "bailian_points": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]{0,18})$"
+          },
+          "cumulative_wins": {
+            "type": "string",
+            "pattern": "^(0|[1-9][0-9]{0,18})$"
+          },
+          "captured_at": {
+            "type": "string",
+            "pattern": "^.*T.*\\.[0-9]{3}Z$",
+            "format": "date-time"
+          },
+          "image_keys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]{1,64}$"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "capture_id",
+          "shikigami_id",
+          "season_key",
+          "player_id",
+          "grade",
+          "bailian_points",
+          "cumulative_wins",
+          "captured_at",
+          "image_keys"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9_-]{1,64}$"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "key",
+          "sha256"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "scope_key",
+    "records",
+    "images"
+  ],
+  "additionalProperties": false
+}

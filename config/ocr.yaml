@@ -1,0 +1,13 @@
+schema_version: '1.0'
+# 真实截图校准及人工核对完成前保持 false；与人工确认、置信度共同控制候选导出。
+calibrated: false
+min_confidence: 0.95
+max_profile_delay_seconds: 30
+preprocess: color
+scale: 2
+detection_model: PP-OCRv5_mobile_det
+recognition_model: PP-OCRv5_mobile_rec
+# 首次运行会下载公开模型；图片在本地推理，不上传给模型服务。
+# 下载后可填写本地模型目录，以便在断网环境中运行。
+text_detection_model_dir: null
+text_recognition_model_dir: null
