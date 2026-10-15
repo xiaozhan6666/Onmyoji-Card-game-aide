@@ -1,0 +1,31 @@
+# 这是待填写模板，坐标未校准，不是实际游戏布局。
+# 图片路径相对于本文件；size 为原图 [宽, 高]；时间必须填写实际截图时间。
+schema_version: '1.0'
+sample_kind: real
+context_confirmed: false
+scope_key: null
+season_key: null
+shikigami_id: null
+images:
+  - key: board
+    path: ../data/screenshots/board.png
+    captured_at: '请填写实际截图时间，例如 2026-10-13T20:00:00.000+08:00'
+    size: [1920, 1080]
+rows:
+  - key: row-001
+    identity_confirmed: false
+    # 使用 inspect 生成网格后填写像素坐标；框中只能有一个完整字段。
+    # 玩家 ID 不在榜单时添加 profile 图片，并明确核对它与该榜单行的关联。
+    # 缺失字段不要猜测或拿昵称代替，保持缺失会进入 pending。
+    fields: {}
+    expected: {}
+    # fields:
+    #   bailian_points: {image: board, box: [left, top, right, bottom]}
+    #   cumulative_wins: {image: board, box: [left, top, right, bottom]}
+    #   player_id: {image: profile, box: [left, top, right, bottom]}
+    #   grade: {image: profile, box: [left, top, right, bottom]}
+    # expected:
+    #   player_id: '00012345'
+    #   grade: 5
+    #   bailian_points: '1840'
+    #   cumulative_wins: '100'

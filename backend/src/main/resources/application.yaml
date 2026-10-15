@@ -1,0 +1,40 @@
+server:
+  address: ${BWP_BIND_ADDRESS:127.0.0.1}
+  port: ${BWP_PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+spring:
+  application:
+    name: bwp-backend
+  datasource:
+    url: ${BWP_DB_URL}
+    username: ${BWP_DB_USER}
+    password: ${BWP_DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 4
+      connection-init-sql: "SET SESSION time_zone = '+00:00', sql_mode = 'STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION', div_precision_increment = 4"
+  flyway:
+    clean-disabled: true
+    placeholders:
+      scopeKey: ${BWP_SCOPE_KEY}
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 40MB
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    default-statement-timeout: 10
+  type-handlers-package: cn.baiwen.aide.common
+bwp:
+  scope-key: ${BWP_SCOPE_KEY}
+  collector-token: ${BWP_COLLECTOR_TOKEN}
+  storage-root: ${BWP_STORAGE_ROOT:./data/server-images}
+  statistics:
+    rules-resource: ${BWP_RULES_RESOURCE:classpath:rules/score-rules.yaml}
+    season-key: ${BWP_STATS_SEASON:S56}
+    window: ${BWP_STATS_WINDOW:P7D}
+    max-interval: ${BWP_STATS_MAX_INTERVAL:PT24H}
+    minimum-games: ${BWP_STATS_MIN_GAMES:1}

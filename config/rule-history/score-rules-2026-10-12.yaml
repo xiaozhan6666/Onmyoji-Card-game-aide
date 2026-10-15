@@ -1,0 +1,22 @@
+version: user_rules_2026_10_12
+source: user_provided_table
+# 未确认项保持为空/false。不得为生成胜率而填写假值。
+scope_key: null
+season_keys: []
+conditions_confirmed: false
+min_points: null
+effective_from: null
+effective_to: null
+rules:
+  - grades: [5, 6]
+    win_points: 9
+    loss_points: -6
+  - grades: [7, 8]
+    win_points: 13
+    loss_points: -7
+  - grades: [9]
+    win_points: 16
+    loss_points: -9
+  - grades: [10]
+    win_points: 19
+    loss_points: -10

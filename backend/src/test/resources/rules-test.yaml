@@ -1,0 +1,22 @@
+# Synthetic fixture. Not a statement of the game's confirmed effective dates or conditions.
+version: synthetic-test-v1
+source: test_fixture
+scope_key: integration-test
+season_keys: [test-season]
+conditions_confirmed: true
+min_points: 0
+effective_from: '2026-10-01T00:00:00Z'
+effective_to: '2026-11-01T00:00:00Z'
+rules:
+  - grades: [5, 6]
+    win_points: 9
+    loss_points: -6
+  - grades: [7, 8]
+    win_points: 13
+    loss_points: -7
+  - grades: [9]
+    win_points: 16
+    loss_points: -9
+  - grades: [10]
+    win_points: 19
+    loss_points: -10

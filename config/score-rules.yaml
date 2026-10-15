@@ -1,0 +1,25 @@
+version: s56_observation_2026_10_13
+source: user_provided_table
+# 用户确认当前 S56、单服，从当前观察起算。该时间是项目采用起点，不是赛季开始时间。
+# local-development 是现有本地数据库的固定范围标识，不代表另一游戏区服。
+calculation_mode: observation
+scope_key: local-development
+season_keys: [S56]
+# 观察模式按用户系数推算，不把尚未核实的特殊加扣分条件标成已确认。
+conditions_confirmed: false
+min_points: null
+effective_from: '2026-10-13T05:31:38Z'
+effective_to: null
+rules:
+  - grades: [5, 6]
+    win_points: 9
+    loss_points: -6
+  - grades: [7, 8]
+    win_points: 13
+    loss_points: -7
+  - grades: [9]
+    win_points: 16
+    loss_points: -9
+  - grades: [10]
+    win_points: 19
+    loss_points: -10
